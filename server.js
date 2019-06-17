@@ -2,6 +2,9 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
+
+var os = require('os');
+var hostname = os.hostname(); 
     
 Object.assign=require('object-assign')
 
