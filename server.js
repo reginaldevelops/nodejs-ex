@@ -3,8 +3,7 @@ var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
 
-var os = require('os');
-var hostname = os.hostname(); 
+var os = require('os'); 
     
 Object.assign=require('object-assign')
 
@@ -73,10 +72,10 @@ app.get('/', function (req, res) {
       if (err) {
         console.log('Error running count. Message:\n'+err);
       }
-      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails, nodeName: nodename });
+      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails, hostName: os.hostname() });
     });
   } else {
-    res.render('index.html', { pageCountMessage : null, nodeName: nodename });
+    res.render('index.html', { pageCountMessage : null, hostName: os.hostname() });
   }
 });
 
